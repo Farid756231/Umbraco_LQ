@@ -6,7 +6,7 @@
     border-radius: 8px;
     background-color: #7da1aee9;
     box-shadow: 0 4px 8px rgba(0, 33, 201, 0.66);
-    position: relative; /* Gör att barnelement kan positioneras relativt */
+    position: relative; 
 }
 
 h1 {
@@ -146,8 +146,12 @@ h3 {
     padding: 10px 20px;
     border: none;
     border-radius: 15px;
+    background-color: #0077ff;
+    color: white;
     cursor: pointer;
     transition: background 0.3s;
+    width: 200px;
+    margin-top:20px;
 }
 
     .ResetQuizButton:hover {
@@ -168,6 +172,25 @@ h3 {
     margin-bottom: 10px;
 }
 
-    .question-result p {
+.question-result p {
         margin: 5px 0;
+
+}
+
+.nextButton {
+    margin: 5px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 15px;
+    background-color: #0077ff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    font-size: 1em;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+    .nextButton:hover {
+        background-color: #0b1027;
+        transform: translateY(-2px);
     }

@@ -2,7 +2,7 @@ let quizzes = [];
 let currentQuizIndex = 0;
 let selectedWord = null;
 let correctAnswersCount = 0;
-let userAnswers = []; 
+let userAnswers = [];
 
 async function fetchQuizData() {
     try {
@@ -46,13 +46,21 @@ function displayQuiz() {
 
         const randomMissingWord = missingWords[Math.floor(Math.random() * missingWords.length)];
 
+        const options = new Set();
+        options.add(quiz.correctAnswer); 
+        options.add(randomMissingWord); 
 
         const remainingWords = missingWords.filter(word => !options.has(word));
         if (remainingWords.length > 0) {
-        const randomThirdWord = remainingWords[Math.floor(Math.random() * remainingWords.length)];
+            const randomThirdWord = remainingWords[Math.floor(Math.random() * remainingWords.length)];
             options.add(randomThirdWord);
+        }
 
-      
+        while (options.size < 3 && remainingWords.length > 0) {
+            const randomWord = remainingWords[Math.floor(Math.random() * remainingWords.length)];
+            options.add(randomWord);
+        }
+
         const shuffledWords = shuffleArray([...options]);
 
         const quizElement = document.createElement('div');
@@ -99,13 +107,18 @@ function handleWordClick(word) {
         selectedButton.classList.add('selected');
 
         if (selectedButton.textContent === currentQuiz.correctAnswer) {
-            selectedButton.classList.add('correct'); 
+            selectedButton.classList.add('correct');
+            console.log(`Question: ${currentQuiz.swedishText}`);
+            console.log(`Your Answer: ${selectedWord} (Correct!)`);
         } else {
-            selectedButton.classList.add('incorrect'); 
+            selectedButton.classList.add('incorrect');
             const correctButton = Array.from(document.querySelectorAll('.word-button')).find(button => button.textContent === currentQuiz.correctAnswer);
             if (correctButton) {
-                correctButton.classList.add('correct'); 
+                correctButton.classList.add('correct');
             }
+            console.log(`Question: ${currentQuiz.swedishText}`);
+            console.log(`Your Answer: ${selectedWord} (Incorrect)`);
+            console.log(`Correct Answer: ${currentQuiz.correctAnswer}`);
         }
     }
     document.getElementById('nextButton').disabled = false;
@@ -119,6 +132,11 @@ function handleNextQuiz() {
         correctAnswersCount++;
     }
 
+    console.log(`Question ${currentQuizIndex + 1}: ${currentQuiz.swedishText}`);
+    console.log(`Your Answer: ${selectedWord}`);
+    console.log(`Correct Answer: ${currentQuiz.correctAnswer}`);
+    console.log(isCorrect ? "Correct!" : "Incorrect!");
+
     selectedWord = null;
     currentQuizIndex++;
 
@@ -129,7 +147,7 @@ async function displayResults() {
     const container = document.getElementById('quiz-container');
     const resultDiv = document.createElement('div');
     resultDiv.className = 'result-container';
-    container.innerHTML = ''; 
+    container.innerHTML = '';
 
     const resultHeader = document.createElement('h2');
     resultHeader.textContent = 'Quiz Result';
@@ -138,13 +156,13 @@ async function displayResults() {
     resultDiv.innerHTML += `You got ${correctAnswersCount} out of ${quizzes.length} correct!<br><br>`;
 
     const questionsContainer = document.createElement('div');
-    questionsContainer.classList.add('questions-container'); 
+    questionsContainer.classList.add('questions-container');
 
     quizzes.forEach((quiz, index) => {
         const questionResultDiv = document.createElement('div');
         questionResultDiv.classList.add('question-result');
 
-        const userAnswer = userAnswers[index] ? userAnswers[index].selected : 'No answer'; // Använd användarens svar
+        const userAnswer = userAnswers[index] ? userAnswers[index].selected : 'No answer'; 
         const correctAnswer = quiz.correctAnswer;
 
         const userAnswerIsCorrect = userAnswer === correctAnswer;
@@ -162,7 +180,8 @@ async function displayResults() {
     resultDiv.appendChild(questionsContainer);
     container.appendChild(resultDiv);
 
-  
+    console.log(`Final Result: You got ${correctAnswersCount} out of ${quizzes.length} correct!`);
+
     const resultData = {
         TotalQuestions: quizzes.length,
         CorrectAnswers: correctAnswersCount
@@ -192,14 +211,14 @@ async function displayResults() {
     resetButton.className = 'ResetQuizButton';
     resetButton.textContent = 'Restart Quiz';
     resetButton.onclick = resetQuiz;
-    container.appendChild(resetButton); 
+    container.appendChild(resetButton);
 }
 
 function resetQuiz() {
     currentQuizIndex = 0;
     correctAnswersCount = 0;
     userAnswers = [];
-    fetchQuizData(); 
+    fetchQuizData();
 }
 
 function shuffleArray(array) {
@@ -212,4 +231,5 @@ function shuffleArray(array) {
 }
 
 fetchQuizData();
+
 
