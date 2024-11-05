@@ -1,24 +1,22 @@
-﻿@using Umbraco.Cms.Web.Common.PublishedModels;
-@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
 @{
 	Layout = null;
 }
 
-
 <!DOCTYPE html>
-<html lang="sv">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>LingoQuest</title>
-    <link rel="stylesheet" href="/css/home.css"> 
+    <title>Quiz Application</title>
+    <!-- Länkar till CSS-filen i Umbraco -->
+    <link rel="stylesheet" href="/css/prov1.css" />
+     <link rel="stylesheet" href="/css/home.css"> 
     <link rel="stylesheet" href="/css/footer.css">
     <link rel="stylesheet" href="/css/navbar.css">
-     <link rel="stylesheet" href="/css/prov.css"><!-- Länka till din CSS-fil -->
 </head>
 <body>
-    <!-- Navbar -->
+
+     <!-- Navbar -->
   <header>
         <nav class="navbar">
             <button class="hamburger" onclick="toggleMenu()">
@@ -36,22 +34,20 @@
             </ul>
         </nav>
     </header>
+    <h1>Quiz Data</h1>
+    <div id="quiz-container" class="quiz-container">
 
-    <!-- Main content -->
-    <main
-    
-      <nav>
-    <ul class="provbutton">
-        <li><a href="/prov1">Enkel Prov</a></li>
-        <li><a href="/prov2">Mellan Prov</a></li>
-        <li><a href="/prov3">Svår Prov</a></li>
-    </ul>
-</nav>
+    </div>
 
+    <div id="result" class="result">
+
+    </div>
+
+     <script src="/scripts/prov1.js"></script>
    
-    </main>
-    
-    <!-- Footer -->
+        
+
+      <!-- Footer -->
     <footer>
         <div class="footer">
             <p>&copy; 2024 LingoQuest. All rights reserved.</p>
@@ -64,14 +60,15 @@
     </footer>
 
        <script>
-        // JavaScript för att hantera menyns öppning och stängning
+       
         function toggleMenu() {
             const navbar = document.querySelector('.navbar');
             navbar.classList.toggle('open');
         }
     </script>
-
 </body>
-
 </html>
+
+
+
 
