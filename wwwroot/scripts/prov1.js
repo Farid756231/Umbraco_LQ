@@ -1,5 +1,3 @@
-
-
 let quizzes = [];
 let currentQuizIndex = 0;
 let selectedWord = null;
@@ -46,19 +44,16 @@ function displayQuiz() {
         const swedishText = quiz.swedishText || 'No Swedish text available';
         const missingWords = Array.isArray(quiz.missingWords) ? quiz.missingWords : [];
 
-       
         const randomMissingWord = missingWords[Math.floor(Math.random() * missingWords.length)];
 
 
-        const options = [quiz.correctAnswer, randomMissingWord];
-
-
-        const remainingWords = missingWords.filter(word => word !== randomMissingWord && word !== quiz.correctAnswer);
+        const remainingWords = missingWords.filter(word => !options.has(word));
+        if (remainingWords.length > 0) {
         const randomThirdWord = remainingWords[Math.floor(Math.random() * remainingWords.length)];
-        options.push(randomThirdWord);
+            options.add(randomThirdWord);
 
       
-        const shuffledWords = shuffleArray(options);
+        const shuffledWords = shuffleArray([...options]);
 
         const quizElement = document.createElement('div');
         quizElement.classList.add('quiz');
@@ -75,7 +70,6 @@ function displayQuiz() {
         container.appendChild(quizElement);
         const wordButtonsContainer = document.getElementById('word-buttons');
 
-      
         shuffledWords.forEach(word => {
             const button = document.createElement('button');
             button.className = 'word-button';
@@ -89,14 +83,11 @@ function displayQuiz() {
     } else {
         displayResults();
     }
-
-  
 }
 
 function handleWordClick(word) {
     selectedWord = word;
     const currentQuiz = quizzes[currentQuizIndex];
-
 
     userAnswers[currentQuizIndex] = { selected: selectedWord, correct: currentQuiz.correctAnswer };
 
@@ -111,7 +102,6 @@ function handleWordClick(word) {
             selectedButton.classList.add('correct'); 
         } else {
             selectedButton.classList.add('incorrect'); 
-          
             const correctButton = Array.from(document.querySelectorAll('.word-button')).find(button => button.textContent === currentQuiz.correctAnswer);
             if (correctButton) {
                 correctButton.classList.add('correct'); 
@@ -141,14 +131,12 @@ async function displayResults() {
     resultDiv.className = 'result-container';
     container.innerHTML = ''; 
 
-
     const resultHeader = document.createElement('h2');
     resultHeader.textContent = 'Quiz Result';
     resultDiv.appendChild(resultHeader);
 
     resultDiv.innerHTML += `You got ${correctAnswersCount} out of ${quizzes.length} correct!<br><br>`;
 
-   
     const questionsContainer = document.createElement('div');
     questionsContainer.classList.add('questions-container'); 
 
@@ -159,7 +147,6 @@ async function displayResults() {
         const userAnswer = userAnswers[index] ? userAnswers[index].selected : 'No answer'; // Använd användarens svar
         const correctAnswer = quiz.correctAnswer;
 
-      
         const userAnswerIsCorrect = userAnswer === correctAnswer;
         const answerColor = userAnswerIsCorrect ? 'green' : 'red';
 
@@ -172,7 +159,6 @@ async function displayResults() {
         questionsContainer.appendChild(questionResultDiv);
     });
 
-   
     resultDiv.appendChild(questionsContainer);
     container.appendChild(resultDiv);
 
@@ -202,7 +188,6 @@ async function displayResults() {
         resultDiv.innerHTML += '<p>Failed to save result. Please try again later.</p>';
     }
 
-  
     const resetButton = document.createElement('button');
     resetButton.className = 'ResetQuizButton';
     resetButton.textContent = 'Restart Quiz';
@@ -225,7 +210,6 @@ function shuffleArray(array) {
     }
     return shuffled;
 }
-
 
 fetchQuizData();
 

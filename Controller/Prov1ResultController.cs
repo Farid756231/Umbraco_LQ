@@ -18,11 +18,10 @@ namespace umbraco_lingoquest.Controller
             _context = context;
         }
 
-        // GET: api/Prov1Result
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Prov1Result>>> GetProv1Results()
         {
-            // Hämtar alla resultat från databasen
+       
             return await _context.Prov1results.ToListAsync();
         }
 
@@ -33,12 +32,10 @@ namespace umbraco_lingoquest.Controller
             {
                 return BadRequest("Result is null");
             }
-
-            // Lägg till resultatet i databasen
             _context.Prov1results.Add(result);
             await _context.SaveChangesAsync();
 
-            // Returnera skapad resurs med dess ID
+    
             return CreatedAtAction(nameof(GetProv1Results), new { id = result.Id }, result);
         }
 

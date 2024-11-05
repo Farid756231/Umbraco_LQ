@@ -144,22 +144,19 @@ h3 {
 
 .ResetQuizButton {
     padding: 10px 20px;
-    background-color: #264e30;
-    color: #ffffff;
     border: none;
     border-radius: 15px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background 0.3s;
 }
 
     .ResetQuizButton:hover {
-        background-color: #1e3b24; /* Mörkare nyans vid hover */
+        background-color: #8fc0c4; 
     }
 
-/* Resultatstilar */
 .result-container {
-    max-height: 300px; /* Max höjd för att göra det scrollbart */
-    overflow-y: auto; /* Aktivera vertikal scroll */
+    max-height: 300px; 
+    overflow-y: auto; 
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 10px;
