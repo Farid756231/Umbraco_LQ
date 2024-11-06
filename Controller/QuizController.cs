@@ -17,7 +17,6 @@ namespace umbraco_lingoquest.Controller
             _context = context;
         }
 
-        // GET: api/quiz
         [HttpGet]
         public ActionResult<List<QuizViewModel>> GetQuizzes()
         {

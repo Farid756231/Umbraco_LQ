@@ -9,5 +9,8 @@ namespace umbraco_lingoquest.Data
 
         public DbSet<QuizViewModel> Quizzes { get; set; }
         public DbSet<Prov1Result> Prov1results { get; set; }
+
+        public DbSet<Prov2Quizz> Prov2Quizzs { get; set; }
+        public DbSet<Prov2QuizzResult> Prov2QuizzResults { get; set; }
     }
 }

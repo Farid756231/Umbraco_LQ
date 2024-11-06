@@ -37,6 +37,49 @@ namespace umbraco_lingoquest.Migrations
                     b.ToTable("Prov1results");
                 });
 
+            modelBuilder.Entity("umbraco_lingoquest.Moduller.Prov2Quizz", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("CorrectAnswer")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Options")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Question")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Prov2Quizzs");
+                });
+
+            modelBuilder.Entity("umbraco_lingoquest.Moduller.Prov2QuizzResult", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("CorrectAnswers")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("SubmittedAt")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("TotalQuestions")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Prov2QuizzResults");
+                });
+
             modelBuilder.Entity("umbraco_lingoquest.Moduller.QuizViewModel", b =>
                 {
                     b.Property<int>("Id")
