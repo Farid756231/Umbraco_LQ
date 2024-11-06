@@ -1,0 +1,83 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reviews</title>
+    <link rel="stylesheet" href="/css/review.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+     <link rel="stylesheet" href="/css/home.css"> 
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+</head>
+<body>
+
+     <!-- Navbar -->
+  <header>
+        <nav class="navbar">
+            <button class="hamburger" onclick="toggleMenu()">
+                &#9776;
+            </button>
+            <ul class="nav-links">
+                <li><a href="/">Hem</a></li>
+                <li><a href="checklist.html">Checklista</a></li>
+                <li><a href="theory.html">Teori</a></li>
+                <li><a href="/prover-page/">Prov</a></li>
+                <li><a href="statistik.html">Statistik</a></li>
+            </ul>
+            <ul class="reviewbutton">
+                <li><a href="review.html">⭐Recensioner</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+
+<div class="review-section">
+    <h2>Submit Your Review</h2>
+    <form id="reviewForm">
+        <div class="form-element">
+            <label>Your Name:</label>
+            <input type="text" id="reviewName" required />
+        </div>
+        <div class="form-element">
+            <label>Email:</label>
+            <input type="email" id="reviewEmail" required />
+        </div>
+        <div class="form-element">
+            <label>Your Review:</label>
+            <textarea id="reviewDescription" required></textarea>
+        </div>
+        <button type="submit">Submit Review</button>
+    </form>
+
+    <div id="thankYouMessage" style="display: none;">
+        <h3>Thank you for your review!</h3>
+    </div>
+</div>
+
+<div class="previous-review">
+    <h2>Previous Reviews</h2>
+    <ul id="reviewList">
+        <li>Loading reviews...</li>
+    </ul>
+</div>
+     <script src="/scripts/review.js"></script>
+
+<script>
+       
+        function toggleMenu() {
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.toggle('open');
+        }
+    </script>
+
+
+
+</body>
+</html>
