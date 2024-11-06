@@ -1,4 +1,5 @@
-﻿using umbraco_lingoquest.Data;
+﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+using umbraco_lingoquest.Data;
 using umbraco_lingoquest.Moduller;
 
 namespace umbraco_lingoquest.ServiceModil
@@ -198,6 +199,96 @@ namespace umbraco_lingoquest.ServiceModil
 
                 context.Prov2Quizzs.AddRange(grammarQuiz);
             }
+
+            if (!context.prov3Quizzs.Any())
+            {
+                var imageModels = new List<Prov3Quizz>
+                {
+                    new Prov3Quizz
+                    {
+                        Id = 1,
+                        ImagePath = "image1.jpg",
+                        Question = "What is in this image?",
+                        Options = new List<string> { "Cat", "Dog", "Car", "House" },
+                        CorrectAnswer = "Dog"
+                    },
+                    new Prov3Quizz
+                    {
+                        Id = 2,
+                        ImagePath = "image2.jpg",
+                        Question = "What type of vehicle is this?",
+                        Options = new List<string> { "Bicycle", "Boat", "Car", "Airplane" },
+                        CorrectAnswer = "Car"
+                    },
+                    new Prov3Quizz
+                    {
+                        Id = 3,
+                        ImagePath = "image3.jpg",
+                        Question = "What does this image show?",
+                        Options = new List<string> { "Flower", "Tree", "Bus", "House" },
+                        CorrectAnswer = "Flower"
+                    },
+                    new Prov3Quizz
+                    {
+                        Id = 4,
+                        ImagePath = "image4.jpg",
+                        Question = "What fruit is shown in the image?",
+                        Options = new List<string> { "Apple", "Banana", "Grape", "Orange" },
+                        CorrectAnswer = "Banana"
+                    },
+                    new Prov3Quizz
+                    {
+                        Id = 5,
+                        ImagePath = "image5.jpg",
+                        Question = "What type of animal is this?",
+                        Options = new List<string> { "Dog", "Fish", "Bird", "Cat" },
+                        CorrectAnswer = "Cat"
+                    },
+                    new Prov3Quizz
+                    {
+                        Id = 6,
+                        ImagePath = "image6.jpg",
+                        Question = "What is the name of this vehicle?",
+                        Options = new List<string> { "Train", "Bus", "Car", "Bicycle" },
+                        CorrectAnswer = "Bus"
+                    },
+                    new Prov3Quizz
+                    {
+                        Id = 7,
+                        ImagePath = "image7.jpg",
+                        Question = "What drink is this?",
+                        Options = new List<string> { "Coffee", "Tea", "Water", "Juice" },
+                        CorrectAnswer = "Tea"
+                    },
+                    new Prov3Quizz
+                    {
+                        Id = 8,
+                        ImagePath = "image8.jpg",
+                        Question = "What is this object?",
+                        Options = new List<string> { "Pen", "Notebook", "Computer", "Phone" },
+                        CorrectAnswer = "Computer"
+                    },
+                    new Prov3Quizz
+                    {
+                        Id = 9,
+                        ImagePath = "image9.jpg",
+                        Question = "What type of nature is shown here?",
+                        Options = new List<string> { "Ocean", "Mountain", "Forest", "Desert" },
+                        CorrectAnswer = "Forest"
+                    },
+                    new Prov3Quizz
+                    {
+                        Id = 10,
+                        ImagePath = "image10.jpg",
+                        Question = "Which sports tool is shown in the image?",
+                        Options = new List<string> { "Football", "Tennis racket", "Basketball", "Golf club" },
+                        CorrectAnswer = "Tennis racket"
+                    }
+                };
+
+                context.prov3Quizzs.AddRange(imageModels);
+            }
+
             context.SaveChanges();
         }
     }

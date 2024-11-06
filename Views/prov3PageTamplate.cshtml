@@ -1,0 +1,67 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz Application</title>
+    <!-- Länkar till CSS-filen i Umbraco -->
+    <link rel="stylesheet" href="/css/prov3.css" />
+     <link rel="stylesheet" href="/css/home.css"> 
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+</head>
+<body>
+
+     <!-- Navbar -->
+  <header>
+        <nav class="navbar">
+            <button class="hamburger" onclick="toggleMenu()">
+                &#9776;
+            </button>
+            <ul class="nav-links">
+                <li><a href="/">Hem</a></li>
+                <li><a href="checklist.html">Checklista</a></li>
+                <li><a href="theory.html">Teori</a></li>
+                <li><a href="/prover-page/">Prov</a></li>
+                <li><a href="statistik.html">Statistik</a></li>
+            </ul>
+            <ul class="reviewbutton">
+                <li><a href="review.html">⭐Recensioner</a></li>
+            </ul>
+        </nav>
+    </header>
+ 
+    <div id="quiz-container">
+        <p id="loading">Laddar frågor...</p>
+    </div>
+
+    <script src="/scripts/prov3.js"></script>
+       
+    </div>
+      <!-- Footer -->
+    <footer>
+        <div class="footer">
+            <p>&copy; 2024 LingoQuest. All rights reserved.</p>
+            <div class="social-media">
+                <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
+                <a href="https://www.x.com" target="_blank" rel="noopener noreferrer">X</a>
+                <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+       <script>
+       
+        function toggleMenu() {
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
