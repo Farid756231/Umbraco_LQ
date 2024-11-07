@@ -29,12 +29,12 @@ namespace umbraco_lingoquest.Controller
         }
 
         [HttpPost]
-        public async Task<ActionResult> PostContact([FromBody] contactUs newContact)
+        public async Task<ActionResult> PostContact( contactUs newContact)
         {
 
-            if (newContact == null)
+            if (!ModelState.IsValid)
             {
-                return BadRequest("Invalid quiz result data.");
+                return BadRequest(ModelState);
             }
 
             _context.ContactUs.Add(newContact);

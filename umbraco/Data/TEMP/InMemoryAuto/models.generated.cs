@@ -17,7 +17,7 @@ using Umbraco.Cms.Core;
 using Umbraco.Extensions;
 
 [assembly:ModelsBuilderAssembly(IsInMemory = true, SourceHash = "9595d8539b21fe579b524a13ef308a142eb182a5")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.2")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
 
 namespace Umbraco.Cms.Web.Common.PublishedModels
 {
