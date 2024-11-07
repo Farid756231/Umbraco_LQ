@@ -17,5 +17,8 @@ namespace umbraco_lingoquest.Data
         public DbSet<Prov3QuizzResult> prov3QuizzResults { get; set; }
 
         public DbSet<Reviwe> Reviews { get; set; }
+        
+        public DbSet<contactUs> contactUs { get; set; }
+        public object ContactUs { get; internal set; }
     }
 }
