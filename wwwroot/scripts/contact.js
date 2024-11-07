@@ -1,4 +1,3 @@
-<script>
     $(document).ready(function () {
         
         $('#contactForm').submit(function (e) {
