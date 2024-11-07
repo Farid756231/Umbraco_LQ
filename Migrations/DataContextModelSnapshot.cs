@@ -80,6 +80,53 @@ namespace umbraco_lingoquest.Migrations
                     b.ToTable("Prov2QuizzResults");
                 });
 
+            modelBuilder.Entity("umbraco_lingoquest.Moduller.Prov3Quizz", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("CorrectAnswer")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ImagePath")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Options")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Question")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("prov3Quizzs");
+                });
+
+            modelBuilder.Entity("umbraco_lingoquest.Moduller.Prov3QuizzResult", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("CorrectAnswers")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("SubmittedAt")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("TotalQuestions")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("prov3QuizzResults");
+                });
+
             modelBuilder.Entity("umbraco_lingoquest.Moduller.QuizViewModel", b =>
                 {
                     b.Property<int>("Id")
