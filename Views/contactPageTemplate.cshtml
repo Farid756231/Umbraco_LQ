@@ -1,0 +1,78 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <title>Kontakta oss</title>
+      <link rel="stylesheet" href="/css/home.css"> 
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/contact.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+
+   <!-- Navbar -->
+  <header>
+        <nav class="navbar">
+            <button class="hamburger" onclick="toggleMenu()">
+                &#9776;
+            </button>
+            <ul class="nav-links">
+                <li><a href="/">Hem</a></li>
+                <li><a href="checklist.html">Checklista</a></li>
+                <li><a href="theory.html">Teori</a></li>
+                <li><a href="/prover-page/">Prov</a></li>
+                <li><a href="statistik.html">Statistik</a></li>
+                <li><a href="contact-page">Kontakta Oss</a></li>
+
+            </ul>
+            <ul class="reviewbutton">
+                <li><a href="review.html">⭐Recensioner</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+<div class="contact-section">
+    <h2>Kontakta oss</h2>
+
+
+    <form id="contactForm">
+        <div class="form-element">
+            <label>Ditt namn:</label>
+            <input type="text" id="contactName" required />
+        </div>
+        <div class="form-element">
+            <label>Email:</label>
+            <input type="email" id="contactEmail" required />
+        </div>
+        <div class="form-element">
+            <label>Meddelande:</label>
+            <textarea id="contactMessage" required></textarea>
+        </div>
+        <button type="submit">Skicka Meddelande</button>
+    </form>
+
+    <div id="thankYouMessage" style="display: none;">
+        <h3>Tack för ditt meddelande!</h3>
+    </div>
+</div>
+
+<script>
+        function toggleMenu() {
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.toggle('open');
+        }
+    </script>
+
+
+</body>
+</html>
+

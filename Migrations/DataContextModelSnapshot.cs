@@ -125,6 +125,29 @@ namespace umbraco_lingoquest.Migrations
 
                     b.ToTable("Reviews");
                 });
+
+            modelBuilder.Entity("umbraco_lingoquest.Moduller.contactUs", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ContactUs");
+                });
 #pragma warning restore 612, 618
         }
     }
