@@ -1,0 +1,68 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teori</title>
+  <link rel="stylesheet" href="/css/teori.css" /> 
+<link rel="stylesheet" href="/css/home.css"> 
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+
+    <!-- Navbar -->
+  <header>
+        <nav class="navbar">
+            <button class="hamburger" onclick="toggleMenu()">
+                &#9776;
+            </button>
+            <ul class="nav-links">
+                <li><a href="/">Hem</a></li>
+                <li><a href="/checklist-page/">Checklista</a></li>
+                <li><a href="/theory-page/">Teori</a></li>
+                <li><a href="/prover-page/">Prov</a></li>
+                <li><a href="/statistik-page/">Statistik</a></li>
+                <li><a href="/contact-page">Kontakta Oss</a></li>
+            </ul>
+            <ul class="reviewbutton">
+                <li><a href="/review-page/">⭐Recensioner</a></li>
+            </ul>
+        </nav>
+    </header>
+
+  <div class="theory-container">
+    <div class="theory-main">
+      <h1 class="theory-heading">Teori</h1>
+      <p class="theory-paragraph">Det finns många olika sätt att lära sig nya språk</p>
+      <p class="theory-paragraph">Här hittar du olika kapitel som ger dig djupare förståelse för ditt nya språk</p>
+      <p class="theory-paragraph">Välj ett av kapitlen och börja läs på</p>
+      <p class="theory-paragraph">Lycka till!</p>
+
+      <ul class="menubuttons">
+    <li><a href="/kap1-page/" class="theory-button">Kapitel 1. Historia</a></li>
+    <li><a href="/kap2-page/" class="theory-button">Kapitel 2. Moderna Språket</a></li>
+    <li><a href="/kap3-page/" class="theory-button">Kapitel 3. Verb</a></li>
+    <li><a href="/kap4-page/" class="theory-button">Kapitel 4. Sammanfattning</a></li>
+</ul>
+
+    </div>
+  </div>
+
+   <script>
+        function toggleMenu() {
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.toggle('open');
+        }
+
+      
+    </script>
+</body>
+</html>
