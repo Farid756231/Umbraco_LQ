@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const response = await fetch('https://localhost:44320/api/Prov3Quizz');
             if (!response.ok) throw new Error('Nätverksresponsen var inte okej');
             questions = await response.json();
-            console.log('Frågor hämtade:', questions); 
+            console.log('Frågor hämtade:', questions);
             displayQuestion();
         } catch (error) {
             quizContainer.innerHTML = "<p>Det gick inte att hämta frågorna</p>";
@@ -35,8 +35,9 @@ document.addEventListener('DOMContentLoaded', function () {
             <p id="selected-option">Du valde: ${selectedOption || 'Ingen'}</p>
             <div class="navigation-buttons">
                 <button onclick="goToPreviousQuestion()" ${currentQuestionIndex === 0 ? 'disabled' : ''}>Föregående fråga</button>
-                <button onclick="goToFirstQuestion()">Tillbaka till start</button>
                 <button id="next-button" onclick="goToNextQuestion()" ${selectedOption === '' ? 'disabled' : ''}>Nästa fråga</button>
+                <button onclick="goToFirstQuestion()">Tillbaka till start</button>
+              
             </div>
          </div>
         `;
@@ -46,16 +47,16 @@ document.addEventListener('DOMContentLoaded', function () {
     window.selectOption = function (option) {
         selectedOption = option;
         document.getElementById('selected-option').textContent = `Du valde: ${option}`;
-        console.log('Valt svar:', option); 
+        console.log('Valt svar:', option);
         document.querySelectorAll('.option-button').forEach(button => {
-            button.disabled = true; 
+            button.disabled = true;
             if (button.textContent === option) {
                 const isCorrect = option === questions[currentQuestionIndex].correctAnswer;
                 button.classList.add(isCorrect ? 'correct' : 'incorrect');
-                console.log(`Valt svar ${option} är ${isCorrect ? 'rätt' : 'fel'}`); 
+                console.log(`Valt svar ${option} är ${isCorrect ? 'rätt' : 'fel'}`);
             }
         });
-        document.getElementById('next-button').disabled = false; 
+        document.getElementById('next-button').disabled = false;
     }
 
     window.goToNextQuestion = function () {
@@ -115,7 +116,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <button onclick="window.location.reload()">Spela igen</button>
             </div>
         `;
-        console.log(`Totalt antal rätta svar: ${correctAnswersCount} av ${questions.length}`); 
+        console.log(`Totalt antal rätta svar: ${correctAnswersCount} av ${questions.length}`);
     }
 
     async function saveResultsToDatabase() {
@@ -144,4 +145,3 @@ document.addEventListener('DOMContentLoaded', function () {
 
     fetchQuestions();
 });
-

@@ -1,3 +1,4 @@
+
 let quizData = [];
 let currentQuestionIndex = 0;
 let userAnswers = [];
@@ -5,7 +6,7 @@ let correctAnswersCount = 0;
 let selectedOption = null;
 let isOptionSelected = false;
 let showResult = false;
-let resultSaved = false; 
+let resultSaved = false;
 
 const fetchQuizData = async () => {
     try {
@@ -13,7 +14,7 @@ const fetchQuizData = async () => {
         if (!response.ok) throw new Error("Network response was not ok");
 
         quizData = await response.json();
-        console.log("Quiz Data Loaded:", quizData); 
+        console.log("Quiz Data Loaded:", quizData);
         displayQuestion();
     } catch (error) {
         displayError(error.message);
@@ -43,13 +44,17 @@ const displayQuestion = () => {
                 `).join("")}
             </ul>
             <div class="navigation">
-             <button id="nextQuestionBtn" ${!isOptionSelected ? "disabled" : ""}>
+                <button id="previousQuestionBtn" ${currentQuestionIndex === 0 ? "disabled" : ""}>Föregående</button>
+                <button id="nextQuestionBtn" ${!isOptionSelected ? "disabled" : ""}>
                     ${currentQuestionIndex === quizData.length - 1 ? "Visa Resultat" : "Nästa"}
                 </button>
                 <button id="firstQuestionBtn" ${currentQuestionIndex === 0 ? "disabled" : ""}>Tillbaka till Första Frågan</button>
             </div>
         </div>
+    
     `;
+
+
     container.innerHTML = questionHTML;
 
     document.querySelectorAll(".option").forEach(option => {
@@ -57,6 +62,7 @@ const displayQuestion = () => {
     });
     document.getElementById("firstQuestionBtn").addEventListener("click", goToFirstQuestion);
     document.getElementById("nextQuestionBtn").addEventListener("click", nextQuestion);
+    document.getElementById("previousQuestionBtn").addEventListener("click", previousQuestion);
 };
 
 const handleOptionSelect = (event) => {
@@ -101,11 +107,20 @@ const nextQuestion = () => {
         displayQuestion();
     } else {
         showResult = true;
-        if (!resultSaved) { 
+        if (!resultSaved) {
             saveResultToDatabase();
-            resultSaved = true; 
+            resultSaved = true;
         }
-        displayResult(); 
+        displayResult();
+    }
+};
+
+const previousQuestion = () => {
+    if (currentQuestionIndex > 0) {
+        currentQuestionIndex--;
+        selectedOption = null;
+        isOptionSelected = false;
+        displayQuestion();
     }
 };
 
