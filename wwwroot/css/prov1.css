@@ -5,18 +5,19 @@ body {
     padding: 0;
     color: #333;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     min-height: 100vh;
 }
+
 .quiz-container {
     max-width: 800px;
-    width:100%;
+    width: 100%;
     margin: 20px auto;
     padding: 20px;
     border-radius: 8px;
     background-color: #7da1aee9;
     box-shadow: 0 4px 8px rgba(0, 33, 201, 0.66);
-    position: relative; 
+    position: relative;
 }
 
 h1 {
@@ -63,13 +64,11 @@ h3 {
     transition: background-color 0.3s, transform 0.3s;
     font-size: 1em;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  
 }
 
     .word-button:hover {
-          background-color: #0b1027;
+        background-color: #0b1027;
         transform: translateY(-2px);
-       
     }
 
 .loading,
@@ -111,16 +110,16 @@ h3 {
     cursor: pointer;
     transition: background 0.3s;
     width: 200px;
-    margin-top:20px;
+    margin-top: 20px;
 }
 
     .ResetQuizButton:hover {
-        background-color: #8fc0c4; 
+        background-color: #8fc0c4;
     }
 
 .result-container {
-    max-height: 300px; 
-    overflow-y: auto; 
+    max-height: 300px;
+    overflow-y: auto;
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 10px;
@@ -132,10 +131,9 @@ h3 {
     margin-bottom: 10px;
 }
 
-.question-result p {
+    .question-result p {
         margin: 5px 0;
-
-}
+    }
 
 .nextButton {
     margin: 5px;
@@ -155,3 +153,38 @@ h3 {
         transform: translateY(-2px);
     }
 
+.prevButton {
+    margin: 5px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 15px;
+    background-color: #6c757d;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    font-size: 1em;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+    .prevButton:hover {
+        background-color: #5a6268;
+        transform: translateY(-2px);
+    }
+
+.startButton {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 15px;
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    font-size: 1em;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+    .startButton:hover {
+        background-color: #218838;
+        transform: translateY(-2px);
+    }
