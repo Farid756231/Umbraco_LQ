@@ -1,3 +1,4 @@
+
 let quizzes = [];
 let currentQuizIndex = 0;
 let selectedWord = null;
@@ -35,7 +36,7 @@ async function fetchQuizData() {
 function displayQuiz() {
     const container = document.getElementById('quiz-container');
     container.innerHTML = '';
-
+    const quizHeight = quizzes.length * 100 + "px"; 
     if (currentQuizIndex < quizzes.length) {
         const quiz = quizzes[currentQuizIndex];
 
@@ -47,8 +48,8 @@ function displayQuiz() {
         const randomMissingWord = missingWords[Math.floor(Math.random() * missingWords.length)];
 
         const options = new Set();
-        options.add(quiz.correctAnswer); 
-        options.add(randomMissingWord); 
+        options.add(quiz.correctAnswer);
+        options.add(randomMissingWord);
 
         const remainingWords = missingWords.filter(word => !options.has(word));
         if (remainingWords.length > 0) {
@@ -72,7 +73,9 @@ function displayQuiz() {
             <p><strong>Swedish Text:</strong> ${swedishText}</p>
             <p><strong>Choose the correct missing word:</strong></p>
             <div id="word-buttons"></div>
-            <button id="nextButton" class="nextButton" disabled>Next</button>
+            <button id="prevButton" class="prevButton" ${currentQuizIndex === 0 ? 'disabled' : ''}>Previous</button>
+             <button id="nextButton" class="nextButton" disabled>Next</button>
+            <button id="startButton" class="startButton" ${currentQuizIndex === 0 ? 'disabled' : ''}>Back to Start</button>
         `;
 
         container.appendChild(quizElement);
@@ -87,6 +90,8 @@ function displayQuiz() {
         });
 
         document.getElementById('nextButton').onclick = handleNextQuiz;
+        document.getElementById('prevButton').onclick = handlePreviousQuiz;
+        document.getElementById('startButton').onclick = goBackToStart;
 
     } else {
         displayResults();
@@ -143,6 +148,18 @@ function handleNextQuiz() {
     displayQuiz();
 }
 
+function handlePreviousQuiz() {
+    if (currentQuizIndex > 0) {
+        currentQuizIndex--;
+        displayQuiz();
+    }
+}
+
+function goBackToStart() {
+    currentQuizIndex = 0;
+    displayQuiz();
+}
+
 async function displayResults() {
     const container = document.getElementById('quiz-container');
     const resultDiv = document.createElement('div');
@@ -162,7 +179,7 @@ async function displayResults() {
         const questionResultDiv = document.createElement('div');
         questionResultDiv.classList.add('question-result');
 
-        const userAnswer = userAnswers[index] ? userAnswers[index].selected : 'No answer'; 
+        const userAnswer = userAnswers[index] ? userAnswers[index].selected : 'No answer';
         const correctAnswer = quiz.correctAnswer;
 
         const userAnswerIsCorrect = userAnswer === correctAnswer;
@@ -231,5 +248,3 @@ function shuffleArray(array) {
 }
 
 fetchQuizData();
-
-

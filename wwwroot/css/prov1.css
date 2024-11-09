@@ -17,6 +17,7 @@ body {
     background-color: #7da1aee9;
     box-shadow: 0 4px 8px rgba(0, 33, 201, 0.66);
     position: relative; 
+ 
 }
 
 h1 {
@@ -155,3 +156,38 @@ h3 {
         transform: translateY(-2px);
     }
 
+.prevButton {
+    margin: 5px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 15px;
+    background-color: #6c757d; 
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    font-size: 1em;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+    .prevButton:hover {
+        background-color: #5a6268; 
+        transform: translateY(-2px);
+    }
+
+.startButton {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 15px;
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    font-size: 1em;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+    .startButton:hover {
+        background-color: #218838;
+        transform: translateY(-2px);
+    }

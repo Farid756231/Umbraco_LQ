@@ -10,8 +10,9 @@ body {
 }
 .quiz-container {
     max-width: 800px;
-    width: 90%;
+    width: 100%;
     margin: 20px auto;
+    margin-top:-75px;
     padding: 20px;
     background: #7da1aee9;
     border-radius: 15px;
@@ -140,6 +141,11 @@ h3.question {
     margin: 20px 0;
     font-size: 1.2em;
     color: #f44336;
+}
+
+.mellan_div{
+    border:20px solid;
+    background-color:yellow;
 }
 
 @media (max-width: 600px) {

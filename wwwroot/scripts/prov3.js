@@ -35,8 +35,9 @@ document.addEventListener('DOMContentLoaded', function () {
             <p id="selected-option">Du valde: ${selectedOption || 'Ingen'}</p>
             <div class="navigation-buttons">
                 <button onclick="goToPreviousQuestion()" ${currentQuestionIndex === 0 ? 'disabled' : ''}>Föregående fråga</button>
-                <button onclick="goToFirstQuestion()">Tillbaka till start</button>
                 <button id="next-button" onclick="goToNextQuestion()" ${selectedOption === '' ? 'disabled' : ''}>Nästa fråga</button>
+                <button onclick="goToFirstQuestion()">Tillbaka till start</button>
+              
             </div>
          </div>
         `;
