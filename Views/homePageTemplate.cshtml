@@ -1,10 +1,9 @@
-﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+﻿@using Umbraco.Cms.Web.Common.PublishedModels
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
 @{
-	Layout = null;
+    Layout = null;
 }
 
-<!DOCTYPE html>
 <html lang="sv">
 <head>
     <meta charset="UTF-8">
@@ -13,22 +12,24 @@
     <title>LingoQuest</title>
     <link rel="stylesheet" href="/css/home.css"> 
     <link rel="stylesheet" href="/css/footer.css">
-    <link rel="stylesheet" href="/css/navbar.css"><!-- Länka till din CSS-fil -->
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/login-modal.css"
 </head>
 <body>
     <!-- Navbar -->
-  <header>
+    <header>
         <nav class="navbar">
             <button class="hamburger" onclick="toggleMenu()">
                 &#9776;
             </button>
             <ul class="nav-links">
                 <li><a href="/">Hem</a></li>
-                <li><a href="checklist.html">Checklista</a></li>
-                <li><a href="/teori-page">Teori</a></li>
+                <li><a href="/checklist">Checklista</a></li>
+                <li><a href="theory.html">Teori</a></li>
                 <li><a href="/prover-page/">Prov</a></li>
-                <li><a href="statistik.html">Statistik</a></li>
+                <li><a href="/statistik">Statistik</a></li>
                 <li><a href="/contact-page">Kontakta Oss</a></li>
+                <button id="authButton" class="login-btn" onclick="handleAuthAction()">Login/Register</button>
             </ul>
             <ul class="reviewbutton">
                 <li><a href="review-page">⭐Recensioner</a></li>
@@ -37,15 +38,15 @@
     </header>
 
     <!-- Main content -->
-    <main>
+    <main class="main-content">
         <h2>LingoQuest</h2>
         <h3>Det nya snabba sättet att lära sig nya språk</h3>
         <div>
             <ul class="menubuttons">
-                <li><a href="checklist.html">Checklista</a></li>
+                <li><a href="/checklist">Checklista</a></li>
                 <li><a href="theory.html">Teori</a></li>
                 <li><a href="/prover-page/">Prov</a></li>
-                <li><a href="statistik.html">Statistik</a></li>
+                <li><a href="/statistik">Statistik</a></li>
             </ul>
         </div>
     </main>
@@ -62,11 +63,83 @@
         </div>
     </footer>
 
-       <script>
-        // JavaScript för att hantera menyns öppning och stängning
+
+    <div id="loginModal" class="modal-overlay" onclick="handleModalClickOutside(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button type="button" class="close-btn" onclick="closeModal()">✖</button>
+            <div class="modal-header">
+                <h3 id="modalTitle">Login to your account</h3>
+                <p id="modalDescription">You must be logged in to perform this action.</p>
+            </div>
+
+   
+            <form id="loginForm" onsubmit="handleLogin(event)">
+                <input id="loginEmail" type="email" placeholder="Email Address" required />
+                <input id="loginPassword" type="password" placeholder="Password" required />
+                <button type="submit" class="submit-btn">Login</button>
+            </form>
+
+        
+            <form id="registerForm" style="display: none;" onsubmit="handleRegister(event)">
+                <input id="registerEmail" type="email" placeholder="Email Address" required />
+                <input id="registerPassword" type="password" placeholder="Password" required />
+                <button type="submit" class="submit-btn">Register</button>
+            </form>
+
+            <p id="toggleLink">
+                Don’t have an account? <a href="javascript:void(0);" onclick="toggleForm()">Sign up</a>
+            </p>
+        </div>
+    </div>
+     <script src="/scripts/auth.js"></script>
+    <script>
+  
         function toggleMenu() {
             const navbar = document.querySelector('.navbar');
             navbar.classList.toggle('open');
+        }
+
+
+        function openLoginModal() {
+            document.getElementById("loginModal").style.display = "flex";  
+            document.querySelector('.main-content').classList.add('blur-background');  
+        }
+
+    
+        function closeModal() {
+            document.getElementById("loginModal").style.display = "none";
+            document.querySelector('.main-content').classList.remove('blur-background');  
+        }
+
+
+        function handleModalClickOutside(event) {
+            if (event.target === event.currentTarget) {
+                closeModal();
+            }
+        }
+
+
+        function toggleForm() {
+            const loginForm = document.getElementById('loginForm');
+            const registerForm = document.getElementById('registerForm');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalDescription = document.getElementById('modalDescription');
+            const toggleLink = document.getElementById('toggleLink');
+
+            if (loginForm.style.display === 'none') {
+                loginForm.style.display = 'block';
+                registerForm.style.display = 'none';
+                modalTitle.innerText = 'Login to your account';
+                modalDescription.innerText = 'You must be logged in to perform this action.';
+                toggleLink.innerHTML = `Don’t have an account? <a href="javascript:void(0);" onclick="toggleForm()">Sign up</a>`;
+            } else {
+ 
+                loginForm.style.display = 'none';
+                registerForm.style.display = 'block';
+                modalTitle.innerText = 'Create an account';
+                modalDescription.innerText = 'Sign up to get started.';
+                toggleLink.innerHTML = `Already have an account? <a href="javascript:void(0);" onclick="toggleForm()">Login</a>`;
+            }
         }
     </script>
 

@@ -1,0 +1,95 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Label Checklist</title>
+    <link rel="stylesheet" href="/css/checklist.css" /> 
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+</head>
+<body>
+     <header>
+        <nav class="navbar">
+            <button class="hamburger" onclick="toggleMenu()">
+                &#9776;
+            </button>
+            <ul class="nav-links">
+                 <li><a href="/">Hem</a></li>
+                <li><a href="/checklist">Checklista</a></li>
+                <li><a href="theory.html">Teori</a></li>
+                <li><a href="/prover-page/">Prov</a></li>
+                <li><a href="/statistik">Statistik</a></li>
+                <li><a href="/contact-page">Kontakta Oss</a></li>
+
+            </ul>
+            <ul class="reviewbutton">
+                <li><a href="review.html">⭐Recensioner</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <h1 class="h1">Välkommen till LingoQuest</h1>
+        <h4 class="h4">Här kan du ha koll på dina framsteg.</h4>
+        <h4 class="h4">💡Följ de för att snabbt lära dig det nya språket.</h4>
+
+        <ul id="labelList" class="list">
+            <!-- Checklist items will be inserted here by JavaScript -->
+        </ul>
+    </div>
+
+    <script>
+        // Static labels as per your data
+        const labels = [
+            { id: 2, subject: "Kapitel 1: Historia", selected: false },
+            { id: 3, subject: "Kapitel 2: Moderna språket", selected: false },
+            { id: 4, subject: "Kapitel 3: Verb", selected: false },
+            { id: 5, subject: "Kapitel 4: Sammanfattning", selected: false },
+            { id: 6, subject: "Enkel prov", selected: false },
+            { id: 7, subject: "Mellan prov", selected: false },
+            { id: 8, subject: "Svår prov", selected: false }
+        ];
+
+        // Function to render the checklist
+        const renderChecklist = () => {
+            const listContainer = document.getElementById("labelList");
+            listContainer.innerHTML = ''; // Clear the list before rendering
+
+            labels.forEach(label => {
+                const listItem = document.createElement("li");
+                listItem.innerHTML = `
+                    <input 
+                        type="checkbox" 
+                        id="label-${label.id}" 
+                        ${label.selected ? 'checked' : ''} 
+                        onclick="handleSelection(${label.id})" />
+                    <label for="label-${label.id}">${label.subject}</label>
+                `;
+                listContainer.appendChild(listItem);
+            });
+        };
+
+        // Handle selection change
+        const handleSelection = (id) => {
+            const labelIndex = labels.findIndex(label => label.id === id);
+            if (labelIndex > -1) {
+                labels[labelIndex].selected = !labels[labelIndex].selected;
+                renderChecklist(); // Re-render the list to update the checkbox state
+            }
+        };
+
+        // Initialize the checklist when the page is loaded
+        renderChecklist();
+    </script>
+    <script>
+        function toggleMenu() {
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
