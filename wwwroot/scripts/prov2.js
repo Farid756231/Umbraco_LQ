@@ -150,7 +150,7 @@ const displayResult = () => {
     const container = document.querySelector(".quiz-container");
     container.innerHTML = `
         <h1>Quiz Resultat</h1>
-        <p>Du har ${correctAnswersCount} av ${quizData.length} rätt!</p>
+        <p class="quiz-summary">Du har ${correctAnswersCount} av ${quizData.length} rätt!</p>
         <div class="result">
             <ul>
                 ${userAnswers.map((answer) => `

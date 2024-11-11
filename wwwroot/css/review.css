@@ -59,7 +59,9 @@ textarea {
     min-height: 120px;
     resize: vertical;
 }
-
+.submit-review-button {
+    font-size: 25px; 
+}
 button[type="submit"] {
     width: 100%;
     background-color: #007acc; /* Primary blue from home theme */
@@ -67,7 +69,7 @@ button[type="submit"] {
     padding: 14px 20px;
     border: none;
     border-radius: 8px; /* Rounded button */
-    font-size: 16px;
+    font-size: 20;
     cursor: pointer;
     transition: background-color 0.3s;
 }
@@ -108,7 +110,7 @@ button[type="submit"]:hover {
 }
 
 .previous-review strong {
-    font-size: 18px;
+    font-size: 25px;
     color: #007acc; /* Primary blue for strong text */
     display: block;
     margin-bottom: 10px;

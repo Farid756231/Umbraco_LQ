@@ -169,7 +169,7 @@ async function displayResults() {
     resultHeader.textContent = 'Quiz Result';
     resultDiv.appendChild(resultHeader);
 
-    resultDiv.innerHTML += `You got ${correctAnswersCount} out of ${quizzes.length} correct!<br><br>`;
+    resultDiv.innerHTML += `<h5>You got ${correctAnswersCount} out of ${quizzes.length} correct!</h5><br><br>`;
 
     const questionsContainer = document.createElement('div');
     questionsContainer.classList.add('questions-container');
