@@ -1,8 +1,9 @@
 body {
-    font-family: Roboto, sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f3f3f3;
+    background-color: #080f22; /* Dark theme background for entire page */
+    color: #edf6f9; /* Light text for contrast */
     text-align: center;
 }
 
@@ -14,19 +15,24 @@ body {
     min-height: 10vh;
     padding-top: 5%;
 }
-
 .theory-main {
     width: 80%;
     max-width: 600px;
     padding: 20px;
-    background-color: #ffffff;
+    background-color: #0b132b; /* Dark background for theory container */
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 16px rgba(0, 170, 255, 0.4), 0 4px 10px rgba(0, 0, 0, 0.7); /* Stronger glow and shadow */
+    transition: box-shadow 0.3s ease; /* Smooth transition for box-shadow */
+}
+
+.theory-main:hover {
+    box-shadow: 0 12px 24px rgba(0, 170, 255, 0.6), 0 6px 15px rgba(0, 0, 0, 0.8); /* More prominent effect on hover */
 }
 
 .theory-heading {
     font-size: 2.5em;
     margin: 0;
+    color: #00aaff; /* Electric blue */
 }
 
 .theory-paragraph {
@@ -34,6 +40,7 @@ body {
     line-height: 1.5;
     margin: 10px auto;
     max-width: 500px;
+    color: #edf6f9; /* Light text for paragraph */
 }
 
 @media (max-width: 768px) {
@@ -57,8 +64,8 @@ body {
 }
 
 .theory-button {
-    background-color: #c3c3c3;
-    color: #ffffff;
+    background-color: #00aaff; /* Electric blue background for buttons */
+    color: #ffffff; /* White text */
     padding: 12px 20px;
     border-radius: 8px;
     margin: 8px 0;
@@ -69,17 +76,17 @@ body {
     cursor: pointer;
     border: none;
     transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 170, 255, 0.2); /* Soft blue shadow */
 }
 
 .theory-button:hover {
-    background-color: #D3D3D3;
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    background-color: #0091cc; /* Darker electric blue on hover */
+    box-shadow: 0 6px 10px rgba(0, 170, 255, 0.3);
     transform: translateY(-2px);
 }
 
 .theory-button:active {
-    background-color: #004494;
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+    background-color: #005a99; /* Even darker shade on click */
+    box-shadow: 0 3px 5px rgba(0, 170, 255, 0.4);
     transform: translateY(1px);
 }

@@ -4,7 +4,7 @@
     position: fixed;
     left: 1px;
     top: 1px;
-    background-color: #acacac;
+    background-color: #080f22; /* Matches dark background */
     transition: width 0.3s ease, height 0.3s ease;
     overflow: hidden;
     z-index: 10;
@@ -26,14 +26,14 @@
     cursor: pointer;
     background-color: transparent;
     border: none;
-    color: #fff;
+    color: #edf6f9; /* Light text color */
     font-size: 24px;
     outline: none;
     margin-bottom: 10px;
     transition: transform 0.3s ease;
 }
 
-.hamburger:hover{
+.hamburger:hover {
     background-color: transparent;
     transform: rotate(90deg);
 }
@@ -51,7 +51,7 @@
 .nav-links a {
     padding: 15px 20px;
     text-decoration: none;
-    color: #fff;
+    color: #edf6f9; /* Light color to match theme */
     display: block;
     transition: all 0.3s ease;
     font-size: 18px;
@@ -68,10 +68,9 @@
 }
 
 .nav-links a:hover {
-    background-color: #555;
-    color: #fff;
+    background-color: #005a99; /* Darker shade for hover */
+    color: #ffffff;
 }
-
 
 .reviewbutton {
     display: flex;
@@ -79,28 +78,28 @@
     margin-top: auto;
     margin-bottom: 50px;
     padding: 10px;
-    background-color: #bfbfbf;
-    color: white;
+    background-color: #007acc; /* Primary button color */
+    color: #ffffff; /* White text */
     text-align: center;
-    border-radius: 5px;
+    border-radius: 8px;
     transition: background-color 0.3s ease, transform 0.3s ease;
     cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0, 122, 204, 0.4); /* Button shadow for depth */
 }
 
 .reviewbutton:hover {
-    background-color: #dcdcdc;
+    background-color: #005a99; /* Darker shade on hover */
     transform: scale(1.05);
 }
 
 .reviewbutton a {
     text-decoration: none;
-    color: white;
+    color: #ffffff;
 }
 
 li {
     list-style-type: none;
 }
-
 
 @media (max-width: 768px) {
     .navbar {
@@ -119,5 +118,3 @@ li {
         font-size: 16px;
     }
 }
-
-
