@@ -1,9 +1,9 @@
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #e8eef1;
+    background-color: #0b132b; /* Updated background color to match home theme */
     margin: 0;
     padding: 0;
-    color: #333;
+    color: #edf6f9; /* Lighter text color for readability */
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -13,22 +13,23 @@ body {
     max-width: 800px;
     width: 100%;
     margin: 20px auto;
-    margin-top: -75px;
+    margin-top: 50px; /* Adjusted to move the container down */
     padding: 20px;
-    background: #7da1aee9;
+    background: #1a1e32; /* Darker background to match theme */
     border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 33, 201, 0.66);
+    box-shadow: 0 4px 8px rgba(0, 122, 204, 0.66); /* Light blue shadow */
 }
 
 h1 {
     font-size: 2em;
-    color: #333333;
+    color: #edf6f9; /* Lighter text color */
     text-align: center;
 }
 
 h3.question {
     font-size: 1.5em;
     margin-bottom: 15px;
+    color: #edf6f9; /* Lighter text color */
 }
 
 .options {
@@ -40,15 +41,16 @@ h3.question {
 .option {
     padding: 10px;
     margin: 5px 0;
-    background-color: #8e9499;
+    background-color: #007acc; /* Primary button color */
     border-radius: 15px;
     transition: background 0.3s;
     cursor: pointer;
+    color: white;
 }
 
-    .option:hover {
-        background-color: #536980;
-    }
+.option:hover {
+    background-color: #005a99; /* Darker shade for hover */
+}
 
 .correct {
     background-color: #c8e6c9;
@@ -66,25 +68,25 @@ h3.question {
     margin-top: 20px;
 }
 
-    .navigation button {
-        padding: 10px;
-        border: none;
-        border-radius: 15px;
-        background-color: #007bff;
-        color: white;
-        cursor: pointer;
-        transition: background 0.3s;
-        margin: 5px 0;
-    }
+.navigation button {
+    padding: 10px;
+    border: none;
+    border-radius: 15px;
+    background-color: #007acc; /* Primary button color */
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin: 5px 0;
+}
 
-        .navigation button:disabled {
-            background-color: #ccc;
-            cursor: not-allowed;
-        }
+.navigation button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
 
-        .navigation button:hover:not(:disabled) {
-            background-color: #0056b3;
-        }
+.navigation button:hover:not(:disabled) {
+    background-color: #005a99; /* Darker shade for hover */
+}
 
 .result {
     max-height: 300px;
@@ -92,16 +94,15 @@ h3.question {
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 10px;
-    background-color: #f9f9f9;
+    background-color: #2c3e50; /* Dark blue-gray background */
     margin-top: 15px;
 }
 
-    .result li {
-        color: #000000;
-        font-weight: bold;
-        margin-bottom: 10px;
-    }
-
+.result li {
+    color: #edf6f9; /* Lighter text color */
+    font-weight: bold;
+    margin-bottom: 10px;
+}
 
 .user-correct {
     color: #4caf50;
@@ -127,16 +128,17 @@ h3.question {
     padding: 10px 20px;
     border: none;
     border-radius: 15px;
-    background-color: #0077ff;
+    background-color: #007acc; /* Primary button color */
     color: white;
     cursor: pointer;
     transition: background 0.3s;
     width: 200px;
+    margin-top: 20px;
 }
 
-    .ResetQuizButton:hover {
-        background-color: #8fc0c4;
-    }
+.ResetQuizButton:hover {
+    background-color: #005a99; /* Darker shade for hover */
+}
 
 .error {
     text-align: center;

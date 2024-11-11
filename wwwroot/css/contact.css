@@ -1,102 +1,106 @@
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f9;
+    font-family: 'Roboto', sans-serif; /* Keeping consistent font from home */
+    background-color: #0b132b; /* Match home page background */
     margin: 0;
     padding: 0;
-    color: #333;
+    color: #edf6f9; /* Lighter text color from home theme */
 }
 
 h2 {
-    color: #333;
+    color: #edf6f9; /* Lighter heading color to match home theme */
     text-align: center;
     margin-bottom: 20px;
+    font-size: 2.5em; /* Similar to home page heading */
 }
 
-
 p {
-    color: #333;
+    color: #edf6f9; /* Lighter text color for paragraphs */
     text-align: center;
     margin-bottom: 20px;
+    font-size: 16px;
 }
 
 form {
     max-width: 700px;
-    margin: 0 auto;
-    padding: 20px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 40px auto; /* Center the form */
+    padding: 30px;
+    background: #1a1e32; /* Dark background to match home theme */
+    border-radius: 8px; /* Rounded edges for a softer look */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Softer shadow */
 }
 
 .form-element {
-    margin-bottom: 15px;
+    margin-bottom: 20px; /* Adjusted space for form elements */
 }
 
 label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     font-weight: bold;
+    color: #edf6f9; /* Light color for labels */
 }
 
 input[type="text"],
 input[type="email"],
 textarea {
     width: 95%;
-    padding: 10px;
+    padding: 12px;
     margin-top: 5px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 8px; /* Rounded edges */
     font-size: 16px;
     font-family: inherit;
+    background-color: #f9f9f9; /* Light gray for inputs */
+    color: #333; /* Darker text for readability */
     transition: border-color 0.3s;
 }
 
 input[type="text"]:focus,
 input[type="email"]:focus,
 textarea:focus {
-    border-color: #000000;
+    border-color: #007acc; /* Primary blue from home theme */
     outline: none;
 }
 
 textarea {
-    min-height: 100px;
+    min-height: 120px;
     resize: vertical;
 }
 
 button[type="submit"] {
     width: 100%;
-    background-color: #b1b1b1;
+    background-color: #007acc; /* Primary blue for submit button */
     color: white;
-    padding: 12px 20px;
+    padding: 14px 20px;
     border: none;
-    border-radius: 4px;
+    border-radius: 8px; /* Rounded button */
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
 button[type="submit"]:hover {
-    background-color: #919191;
+    background-color: #005a99; /* Darker shade for hover effect */
 }
 
 .review-section .thank-you {
     text-align: center;
-    margin-top: 20px;
-    color: #c6c8c7;
+    margin-top: 25px;
+    color: #2ecc71; /* Green for thank-you message */
     font-weight: bold;
+    font-size: 18px;
 }
 
-
-
-
-
 @media (max-width: 768px) {
-    form, .previous-review {
-        padding: 10px;
+    form {
+        padding: 20px; /* Slightly smaller padding for mobile */
     }
 
     button[type="submit"] {
-        font-size: 14px;
+        font-size: 14px; /* Smaller font for submit button */
     }
 
+    .form-element {
+        margin-bottom: 15px; /* More compact spacing for mobile */
+    }
 }

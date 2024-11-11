@@ -1,4 +1,4 @@
-body {
+/* body {
     font-family: 'Arial', sans-serif;
     background-color: #e8eef1;
     margin: 0;
@@ -187,4 +187,197 @@ h3 {
     .startButton:hover {
         background-color: #218838;
         transform: translateY(-2px);
-    }
+    } */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #0b132b; /* Updated background color to match home theme */
+    margin: 0;
+    padding: 0;
+    color: #edf6f9; /* Lighter text color for readability */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.quiz-container {
+    max-width: 800px;
+    width: 100%;
+    margin: 100px auto;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #1a1e32; /* Darker background to match theme */
+    box-shadow: 0 4px 8px rgba(0, 122, 204, 0.66); /* Light blue shadow */
+    position: relative;
+}
+p {
+    color: white;
+}
+h1 {
+    text-align: center;
+    font-size: 2em;
+    color: #edf6f9; /* Lighter text color */
+}
+
+.quiz-item {
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #e4f7f5;
+}
+
+h2 {
+    font-size: 1.5em;
+    color: #edf6f9; /* Lighter text color for contrast */
+}
+
+h3 {
+    font-size: 1.2em;
+    color: #edf6f9; /* Lighter text color for contrast */
+}
+
+.button-container {
+    list-style: none;
+    padding: 0;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.word-button {
+    margin: 5px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 15px;
+    background-color: #007acc; /* Primary button color */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    font-size: 1em;
+    box-shadow: 0 2px 5px rgba(0, 122, 204, 0.1); /* Soft blue shadow */
+}
+
+.word-button:hover {
+    background-color: #005a99; /* Darker blue on hover */
+    transform: translateY(-2px);
+}
+
+.loading,
+.error {
+    text-align: center;
+    font-size: 1.2em;
+    color: #ff0000;
+}
+
+.correct {
+    background-color: #c8e6c9;
+    border-color: #4caf50;
+}
+
+.incorrect {
+    background-color: #ffcdd2;
+    border-color: #f44336;
+}
+
+.correct-answer {
+    color: green;
+    font-weight: bold;
+}
+
+.word-button.selected {
+    background-color: red;
+}
+
+.word-button.selected.correct {
+    background-color: green;
+}
+
+.ResetQuizButton {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 15px;
+    background-color: #007acc; /* Primary button color */
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s;
+    width: 200px;
+    margin-top: 20px;
+}
+
+.ResetQuizButton:hover {
+    background-color: #005a99; /* Darker blue on hover */
+}
+
+.result-container {
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #2c3e50; /* Dark blue-gray background */
+}
+
+.question-result {
+    margin-bottom: 10px;
+}
+
+.question-result p {
+    margin: 5px 0;
+}
+
+.nextButton {
+    margin: 5px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 15px;
+    background-color: #007acc; /* Primary button color */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    font-size: 1em;
+    box-shadow: 0 2px 5px rgba(0, 122, 204, 0.1);
+}
+
+.nextButton:hover {
+    background-color: #005a99; /* Darker blue on hover */
+    transform: translateY(-2px);
+}
+
+.prevButton {
+    margin: 5px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 15px;
+    background-color: #6c757d; /* Neutral gray for prev button */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    font-size: 1em;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.prevButton:hover {
+    background-color: #5a6268; /* Darker gray on hover */
+    transform: translateY(-2px);
+}
+
+.startButton {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 15px;
+    background-color: #28a745; /* Green for start button */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    font-size: 1em;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.startButton:hover {
+    background-color: #218838; /* Darker green on hover */
+    transform: translateY(-2px);
+}
