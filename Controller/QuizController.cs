@@ -7,6 +7,7 @@ namespace umbraco_lingoquest.Controller
 {
     [Route("api/[controller]")]
     [ApiController]
+  
     public class QuizController : ControllerBase
     {
 
