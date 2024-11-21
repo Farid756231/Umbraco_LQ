@@ -1,0 +1,57 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz Application</title>
+    <!-- Länkar till CSS-filen i Umbraco -->
+    <link rel="stylesheet" href="/css/prov3.css" />
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header>
+        <nav class="navbar">
+            <button class="hamburger" onclick="toggleMenu()">
+                &#9776;
+            </button>
+            <ul class="nav-links">
+                <li><a href="/">Hem</a></li>
+                <li><a href="checklist">Checklista</a></li>
+                <li><a href="teori-page">Teori</a></li>
+                <li><a href="/prover-page/">Prov</a></li>
+                <li><a href="statistik">Statistik</a></li>
+                <li><a href="/contact-page">Kontakta Oss</a></li>
+            </ul>
+            <ul class="reviewbutton">
+                <li><a href="review-page">⭐Recensioner</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="quiz-container">
+        <p id="loading">Laddar frågor...</p>
+    </div>
+
+    <script src="/scripts/prov3.js"></script>
+
+    </div>
+
+    <script>
+
+        function toggleMenu() {
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz Application</title>
+    <!-- Länkar till CSS-filen i Umbraco -->
+    <link rel="stylesheet" href="/css/prov1.css" />
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header>
+        <nav class="navbar">
+            <button class="hamburger" onclick="toggleMenu()">
+                &#9776;
+            </button>
+            <ul class="nav-links">
+                <li><a href="/">Hem</a></li>
+                <li><a href="checklist">Checklista</a></li>
+                <li><a href="teori-page">Teori</a></li>
+                <li><a href="/prover-page/">Prov</a></li>
+                <li><a href="statistik">Statistik</a></li>
+                <li><a href="/contact-page">Kontakta Oss</a></li>
+            </ul>
+            <ul class="reviewbutton">
+                <li><a href="review-page">⭐Recensioner</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div id="quiz-container" class="quiz-container">
+    </div>
+
+    <div id="result" class="result">
+    </div>
+
+    <script src="/scripts/prov1.js"></script>
+
+    <script>
+
+        function toggleMenu() {
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
+
+
+
+

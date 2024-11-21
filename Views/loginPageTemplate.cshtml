@@ -1,0 +1,75 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+
+@{
+    Layout = null; 
+}
+<html>
+<head>
+    <link rel="stylesheet" href="/css/login-modal.css" />
+</head>
+<div id="loginModal" class="modal-overlay" onclick="handleModalClickOutside(event)">
+    <div class="modal-content" onclick="event.stopPropagation()">
+        <button type="button" class="close-btn" onclick="closeModal()">✖</button>
+        <div class="modal-header">
+            <h3 id="modalTitle">Logga in på ditt konto</h3>
+            <p id="modalDescription">Du måste vara inloggad för att utföra denna åtgärd.</p>
+        </div>
+
+        <form id="loginForm" onsubmit="handleLogin(event)">
+            <input id="loginEmail" type="email" placeholder="E-postadress" required />
+            <input id="loginPassword" type="password" placeholder="Lösenord" required />
+            <button type="submit" class="submit-btn">Logga in</button>
+        </form>
+
+        <form id="registerForm" style="display: none;" onsubmit="handleRegister(event)">
+            <input id="registerEmail" type="email" placeholder="E-postadress" required />
+            <input id="registerPassword" type="password" placeholder="Lösenord" required />
+            <button type="submit" class="submit-btn">Registrera</button>
+        </form>
+
+        <p id="toggleLink">
+            Har du inget konto? <a href="javascript:void(0);" onclick="toggleForm()">Registrera dig</a>
+        </p>
+    </div>
+</div>
+
+<script src="/scripts/auth.js"></script>
+<script>
+    // Toggle between Login and Sign Up forms
+    function toggleForm() {
+        const loginForm = document.getElementById('loginForm');
+        const registerForm = document.getElementById('registerForm');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDescription = document.getElementById('modalDescription');
+        const toggleLink = document.getElementById('toggleLink');
+
+        if (loginForm.style.display === 'none') {
+            // Switch to Login form
+            loginForm.style.display = 'block';
+            registerForm.style.display = 'none';
+            modalTitle.innerText = 'Logga in på ditt konto';
+            modalDescription.innerText = 'Du måste vara inloggad för att utföra denna åtgärd.';
+            toggleLink.innerHTML = `Har du inget konto? <a href="javascript:void(0);" onclick="toggleForm()">Registrera dig</a>`;
+        } else {
+            // Switch to Sign Up form
+            loginForm.style.display = 'none';
+            registerForm.style.display = 'block';
+            modalTitle.innerText = 'Skapa ett konto';
+            modalDescription.innerText = 'Registrera dig för att komma igång.';
+            toggleLink.innerHTML = `Har du redan ett konto? <a href="javascript:void(0);" onclick="toggleForm()">Logga in</a>`;
+        }
+    }
+
+    function closeModal() {
+        document.getElementById("loginModal").style.display = "none";
+    }
+
+    function handleModalClickOutside(event) {
+        if (event.target === event.currentTarget) {
+            closeModal();
+        }
+    }
+</script>
+
+</html>

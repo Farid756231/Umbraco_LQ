@@ -1,0 +1,84 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historia</title>
+    <link rel="stylesheet" href="/css/teori.css" /> 
+    <link rel="stylesheet" href="/css/home.css"> 
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/kap1.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+
+    @* Navbar *@
+    <header>
+        <nav class="navbar">
+            <button class="hamburger" onclick="toggleMenu()">&#9776;</button>
+            <ul class="nav-links">
+                <li><a href="/">Hem</a></li>
+                <li><a href="/checklist-page/">Checklista</a></li>
+                <li><a href="/teori-page/">Teori</a></li>
+                <li><a href="/prover-page/">Prov</a></li>
+                <li><a href="/statistik-page/">Statistik</a></li>
+                <li><a href="/contact-page">Kontakta Oss</a></li>
+            </ul>
+            <ul class="reviewbutton">
+                <li><a href="/review-page/">⭐Recensioner</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="theory-container">
+        <div class="theory-main">
+            <h2>Historia</h2>
+            <p>Här kan du lära dig om språkets historia</p>
+
+            <ul class="menubuttons">
+                <li><a href="/teori-page/">Tillbaka till Teori sidan</a></li>
+            </ul>
+
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus pulvinar quis eros at aliquet. Integer scelerisque placerat nunc, non facilisis metus imperdiet nec. Aenean dignissim erat vel sem elementum rhoncus. Curabitur in nulla vitae arcu mollis auctor id vitae quam. Mauris semper erat ac tortor suscipit, id varius massa semper. Cras vitae dui laoreet, rutrum nisl sed, feugiat nunc. Duis pulvinar egestas nisi, vel laoreet ligula gravida ac. Nullam euismod commodo interdum. In quis bibendum dolor, ut varius ligula. Fusce laoreet, urna nec dapibus porttitor, lectus quam malesuada ipsum, pulvinar ornare lacus eros non libero. Mauris eu nunc sem. Integer porttitor lorem a bibendum laoreet. Integer aliquet a leo in iaculis. Donec sollicitudin blandit velit, eu accumsan lectus facilisis at. Cras ligula velit, vehicula eget nisl eu, aliquet aliquet neque. Aliquam congue facilisis dolor, sed rutrum libero pulvinar non.
+            </p>
+
+            <p>
+                Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Phasellus ut rutrum erat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean sit amet imperdiet dui. In et gravida ante. Suspendisse volutpat euismod enim, sit amet dignissim ante viverra sed. Pellentesque ultrices tortor vel pretium varius. Donec in nibh et libero dapibus semper.
+            </p>
+
+            <p>
+                Aenean congue mattis sem, id faucibus nunc lobortis vitae. Sed egestas pretium felis, nec venenatis risus dictum cursus. Curabitur tellus lectus, eleifend id malesuada pretium, pretium vel orci. Maecenas in diam quis ex sagittis hendrerit sed sit amet lectus. Phasellus porttitor nulla magna, ac imperdiet orci auctor eu. Pellentesque congue mi eget molestie pulvinar. Phasellus ac sodales urna.
+            </p>
+
+            <p>
+                Duis in metus eu mauris iaculis hendrerit et non turpis. Suspendisse sed fermentum risus. Aliquam vitae massa porta, maximus urna ac, efficitur erat. Vestibulum vel eros hendrerit, tempor ipsum sit amet, laoreet quam. Sed sollicitudin tortor sed accumsan sodales. Duis nunc dolor, elementum eu sagittis vel, vulputate sodales nisi. Pellentesque ipsum ante, volutpat vitae lacinia venenatis, tincidunt eget tortor.
+            </p>
+
+            <p>
+                Curabitur eget blandit enim, sit amet semper urna. Nullam vel nulla tellus. Suspendisse convallis enim quam, in feugiat dolor euismod lobortis. Donec pulvinar metus at turpis luctus, eu sollicitudin enim iaculis. Phasellus ut pretium felis, eu aliquet mauris. Pellentesque non diam sit amet sem maximus consequat sit amet eu turpis. Maecenas imperdiet urna vitae lorem elementum, at eleifend tellus semper. In et urna eget lectus vulputate mollis. Nulla ornare, ante non tempus venenatis, odio massa condimentum nisi, et pretium sem nibh in magna. Integer laoreet metus nec est scelerisque, at vehicula nulla aliquam. Duis non velit dolor. Vestibulum velit est, placerat ac ornare ut, viverra in nulla.
+            </p>
+
+            <ul class="menubuttons">
+                <li><a href="/prover-page">Testa din kunskap</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.toggle('open');
+        }
+    </script>
+
+</body>
+</html>
